@@ -14,3 +14,4 @@ Linux应用层常用库,用于操作硬件,系统等
 作者: 梅日菲  
 作者QQ: 375476790  
 微信公众号: 梅老师讲嵌入式  
+![微信扫一扫](https://github.com/Teacher-May/linux-app/raw/master/pic/WXGZH.jpg)

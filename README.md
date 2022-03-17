@@ -3,7 +3,7 @@ Linux应用层常用库,用于操作硬件,系统等
 
 关键字: linux embedded app uart i2c spi pwm usb sd gpio ......  
 
-会时不时更新,现在处于成长阶段,欢迎大家指正.
+火热更新中,欢迎大家指正.
 
 ## 本代码志在如下几点:  
 (1) 操作嵌入式Linux各种硬件,例如UART,I2C,SPI等;  

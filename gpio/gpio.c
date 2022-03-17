@@ -129,10 +129,7 @@ int gpio_get_value(int gpionum)
 	fflush(fp); //刷新缓冲区
 	fclose(fp);
 
-	
-
-
-	return !!atoi(buf);
+	return !!atoi(buf); //二值化
 	
 }
 

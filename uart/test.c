@@ -12,7 +12,7 @@ void *read_thread(void *args)
 
     while(1){
         memset(buf, 0, sizeof(buf));
-        nread += read_uart(fd, buf, sizeof(buf));
+        nread += uart_read(fd, buf, sizeof(buf));
         printf("nread=%d uart_read=%s\n", nread, buf);
     }
 }
@@ -26,12 +26,12 @@ int main(int argc, char **argv)
     nread = 0;
     nwrite = 0;
 
-    fd = open_uart(argv[1], 9600, 8, NONE_PARITY, 1);
+    fd = uart_open(argv[1], 9600, 8, NONE_PARITY, 1);
 
     pthread_create(&tid, NULL, read_thread, (void *)fd);
 
     while(1){
-        nwrite += write_uart(fd, cmd, strlen(cmd));
+        nwrite += uart_write(fd, cmd, strlen(cmd));
         printf("nwrite=%d\n", nwrite);
         sleep(1);
     }

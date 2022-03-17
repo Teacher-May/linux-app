@@ -31,11 +31,11 @@ extern "C" {
 #define EVEN_PARITY 	'E'  /* 偶校验 */
 #define NONE_PARITY     'N'  /* 无校验 */
 
-int read_uart(int fd, char *buf, int size);
-int write_uart(int fd, char *buf, int size);
-int close_uart(int fd);
-int open_uart(char *uart_path, int uart_baudrate, int uart_databits, char uart_parity, int uart_stopbits);
-speed_t get_uart_baudrate(int baudrate);
+int uart_read(int fd, char *buf, int size);
+int uart_write(int fd, char *buf, int size);
+int uart_close(int fd);
+int uart_open(char *uart_path, int uart_baudrate, int uart_databits, char uart_parity, int uart_stopbits);
+speed_t uart_get_baudrate(int baudrate);
 
 #ifdef __cplusplus
 }

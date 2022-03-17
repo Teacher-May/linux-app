@@ -14,7 +14,7 @@
 
 #include "uart.h"
 
-speed_t get_uart_baudrate(int baudrate)
+speed_t uart_get_baudrate(int baudrate)
 {
     switch(baudrate) {
         case 0: 		return B0;
@@ -66,7 +66,7 @@ speed_t get_uart_baudrate(int baudrate)
 	uart_open("/dev/ttySAC2", 115200, 8, NONE_PARITY, 1);
 
 */
-int open_uart(char *uart_path, int uart_baudrate, int uart_databits, char uart_parity, int uart_stopbits)
+int uart_open(char *uart_path, int uart_baudrate, int uart_databits, char uart_parity, int uart_stopbits)
 {
     int fd, result;
     struct termios newtio,oldtio;   //创建
@@ -139,7 +139,7 @@ int open_uart(char *uart_path, int uart_baudrate, int uart_databits, char uart_p
             break;
     }
 
-    uart_speed = get_uart_baudrate(uart_baudrate);
+    uart_speed = uart_get_baudrate(uart_baudrate);
 
     cfsetispeed(&newtio, uart_speed);
     cfsetospeed(&newtio, uart_speed);
@@ -205,15 +205,19 @@ int open_uart(char *uart_path, int uart_baudrate, int uart_databits, char uart_p
 }
 
 
-int read_uart(int fd, char *buf, int size)
+int uart_read(int fd, char *buf, int size)
 {
     return read(fd, buf, size);
 }
 
 
-int write_uart(int fd, char *buf, int size)
+int uart_write(int fd, char *buf, int size)
 {
     return write(fd, buf, size);
 }
 
+int uart_close(int fd)
+{
+    return close(fd);
+}
 

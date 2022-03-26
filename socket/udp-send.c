@@ -7,7 +7,7 @@
 #include <fcntl.h>
 #include <unistd.h>
 
-#define PORT 44444
+#define PORT 55555
 
 
 int main(int argc, char **argv)
@@ -26,8 +26,7 @@ int main(int argc, char **argv)
 	send_addr.sin_port = htons(PORT);              //服务器端口
 	send_addr.sin_addr.s_addr = inet_addr(argv[1]); 
 
-	bind(sock,(struct sockaddr*)&send_addr, sizeof(send_addr));
-
+ 
 	while(1){
 		memset(buf, 0, sizeof(buf));
 		
